@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pirmi metai su opcionais</title>
+<meta name="description" content="Trys sąžiningi pasidalinimai iš daug_pinigu bendruomenės: kaip iš tikrųjų atrodo pirmi metai prekiaujant opcionais.">
+<meta property="og:title" content="Pirmi metai su opcionais">
+<meta property="og:description" content="Trys sąžiningi pasidalinimai: kaip iš tikrųjų atrodo pirmi metai prekiaujant opcionais.">
+<meta property="og:type" content="article">
+<style>
+  :root {
+    --bg: #faf6ea;
+    --card: #fffdf6;
+    --surface: #f2ecda;
+    --ink: #2b3560;
+    --ink-strong: #1e2542;
+    --muted: #6b6350;
+    --hair: rgba(43, 53, 96, .16);
+    --gold: #c98a1b;
+    --gold-text: #8f6410;
+    --green: #3e7d4e;
+    --rust: #b5502f;
+    --shadow: 0 1px 2px rgba(30, 37, 66, .05), 0 10px 30px rgba(30, 37, 66, .07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141828;
+      --card: #1a1f33;
+      --surface: #1e2440;
+      --ink: #e9e2cd;
+      --ink-strong: #f7f1e0;
+      --muted: #a89f83;
+      --hair: rgba(233, 226, 205, .15);
+      --gold: #d9a53f;
+      --gold-text: #d9a53f;
+      --green: #7cb98b;
+      --rust: #d97f5a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .32);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141828;
+    --card: #1a1f33;
+    --surface: #1e2440;
+    --ink: #e9e2cd;
+    --ink-strong: #f7f1e0;
+    --muted: #a89f83;
+    --hair: rgba(233, 226, 205, .15);
+    --gold: #d9a53f;
+    --gold-text: #d9a53f;
+    --green: #7cb98b;
+    --rust: #d97f5a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .32);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+
+  /* ---------- hero ---------- */
+  header.hero {
+    padding: 68px 0 40px;
+    border-bottom: 1px solid var(--hair);
+    background:
+      radial-gradient(1000px 380px at 15% -10%, color-mix(in srgb, var(--gold) 13%, transparent), transparent 70%),
+      var(--bg);
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold-text); font-weight: 700; margin: 0 0 16px;
+  }
+  h1 {
+    font-size: clamp(34px, 6.2vw, 52px);
+    line-height: 1.08; letter-spacing: -.02em;
+    margin: 0 0 20px; color: var(--ink-strong); font-weight: 800;
+  }
+  .lede { font-size: 19px; color: var(--muted); margin: 0 0 26px; max-width: 60ch; }
+  .meta { font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+  .meta .dot { opacity: .45; }
+
+  /* ---------- intro ---------- */
+  section.intro { padding: 44px 0 8px; }
+  section.intro p { margin: 0 0 18px; }
+  section.intro p.first::first-letter {
+    float: left; font-size: 58px; line-height: .84; font-weight: 800;
+    color: var(--gold-text); padding: 4px 12px 0 0;
+  }
+
+  /* ---------- pull quote ---------- */
+  .pull {
+    margin: 34px 0 46px; padding: 26px 28px;
+    background: var(--surface); border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    font-size: 21px; line-height: 1.45; font-weight: 650;
+    color: var(--ink-strong); letter-spacing: -.01em;
+  }
+
+  /* ---------- posts ---------- */
+  .posts { padding: 10px 0 20px; }
+  article.post {
+    background: var(--card);
+    border: 1px solid var(--hair);
+    border-radius: 16px;
+    padding: 30px 30px 26px;
+    margin: 0 0 30px;
+    box-shadow: var(--shadow);
+  }
+  .post-head { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+  .avatar {
+    width: 44px; height: 44px; border-radius: 50%; flex: 0 0 44px;
+    display: grid; place-items: center;
+    font-weight: 800; font-size: 17px; letter-spacing: .01em;
+    color: #fffdf6;
+  }
+  .a-v { background: linear-gradient(140deg, #4a5a9e, #2b3560); }
+  .a-r { background: linear-gradient(140deg, #c98a1b, #96601a); }
+  .a-d { background: linear-gradient(140deg, #3e7d4e, #275634); }
+  .who { font-weight: 750; color: var(--ink-strong); font-size: 16.5px; }
+  .when { font-size: 13px; color: var(--muted); }
+  .tag {
+    display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--hair); color: var(--muted); margin-left: auto;
+    white-space: nowrap;
+  }
+  .post-title {
+    margin: 14px 0 14px; font-size: 22px; line-height: 1.25; font-weight: 750;
+    color: var(--ink-strong); letter-spacing: -.015em;
+  }
+  .reply-ctx {
+    font-size: 14px; color: var(--muted); background: var(--surface);
+    border-radius: 10px; padding: 10px 14px; margin: 12px 0 16px;
+    border-left: 3px solid var(--hair);
+  }
+  .reply-ctx b { color: var(--ink); font-weight: 700; }
+  .post p { margin: 0 0 16px; }
+  .post p:last-child { margin-bottom: 0; }
+  .post .num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink-strong); }
+
+  /* ---------- takeaways ---------- */
+  section.takeaways { padding: 26px 0 10px; }
+  h2 {
+    font-size: 26px; letter-spacing: -.02em; color: var(--ink-strong);
+    margin: 0 0 8px; font-weight: 800;
+  }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  ul.points { list-style: none; margin: 0; padding: 0; }
+  ul.points li {
+    background: var(--card); border: 1px solid var(--hair); border-radius: 13px;
+    padding: 18px 20px; margin: 0 0 12px;
+  }
+  ul.points li b { color: var(--ink-strong); display: block; margin-bottom: 3px; font-size: 16px; }
+  ul.points li span { color: var(--muted); font-size: 15.5px; }
+
+  /* ---------- footer ---------- */
+  footer {
+    margin-top: 46px; padding: 30px 0 60px;
+    border-top: 1px solid var(--hair);
+    font-size: 14px; color: var(--muted);
+  }
+  footer p { margin: 0 0 10px; }
+  footer .brand { font-weight: 750; color: var(--ink-strong); }
+
+  @media (max-width: 560px) {
+    body { font-size: 16.5px; }
+    article.post { padding: 24px 20px 20px; border-radius: 14px; }
+    .pull { font-size: 19px; padding: 22px 22px; }
+    .tag { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">daug_pinigu bendruomenė</p>
+    <h1>Pirmi metai su opcionais</h1>
+    <p class="lede">Trys pasidalinimai iš uždaro kanalo. Be gražinimo, be pergalių paradų - taip, kaip iš tikrųjų atrodo pirmieji metai.</p>
+    <div class="meta">
+      <span>2026 m. rugsėjo 1 d.</span>
+      <span class="dot">•</span>
+      <span>3 pasidalinimai</span>
+      <span class="dot">•</span>
+      <span>~9 min skaitymo</span>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="first">Bendruomenėse dažniausiai matai tik vieną pusę - screenshot'us su žaliais skaičiais. Šitie trys tekstai kitokie. Juos parašė žmonės, kurie pirmus metus praėjo su realiais pinigais ir nusprendė papasakoti ne tik apie tai, kas pavyko.</p>
+    <p>Vienas per metus matė portfelį nukritusį daugiau nei per pusę ir vis tiek liko prie stalo. Kita pasidalino tuo, apie ką paprastai tylima - kaip jautiesi, kai iš sunkiai uždirbtų pinigų prie akių rodo minusą. Trečias tekstas - mano atsakymas jiems abiem.</p>
+    <p>Skaitykit lėtai. Čia yra daugiau vertės nei bet kuriame „secret strategy revealed“ video.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pull">„Galima pasirinkti šūdinas pozicijas, tai ne taip skausminga, kaip jeigu pasirinktas blogas sizing.“</div>
+</div>
+
+<section class="posts">
+  <div class="wrap">
+
+    <!-- POST 1 -->
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar a-v">V</div>
+        <div>
+          <div class="who">V.</div>
+          <div class="when">2026-08-31, 20:37</div>
+        </div>
+        <span class="tag">Pirmi metai</span>
+      </div>
+      <h2 class="post-title">Apie uždarytas ir neuždarytas pozicijas ir savo nuomonę</h2>
+
+      <p>Ta proga, kad baigiasi vasara ir rytoj prasideda nauji mokslo metai sudėliojau šiokias tokias savo mintis. Bent man asmeniškai, Rugsėjo 1 yra labiau nauji metai nei tikroji Naujųjų šventė. Matyt dar likusi mokyklos trauma. Todėl, tai proga naujai duoti sau pažadą kibti į savarankiškus opcionų mokslus.</p>
+
+      <p>Pirmiausia padėkosiu G., kad nukreipė mane čia, per jį sužinojau kad išvis tokia grupė ir toks dalykas kaip opcionai egzistuoja. Ačiū daug_pinigu už kuriamą turinį. Kiekviena diena, po žadintuvo signalo, prasideda vienodai: futures situacijos patikrinimas ir laukimas, kada atsidarys rinka. Savaitgalį irgi vis patikrinu - gal atsidarė? Panašu kad išsivystė priklausomybe nuo kavos ir US rinkos.</p>
+
+      <p>IBKR accounta atsidariau 2025 spalio mėn. Po konsultacijos su G. susidėliojau prioritetus. Vėliau pardaviau NT (tik savo asmeniniu sprendimu) ir padariau all-in į opcionus. (Taip buvo kažkada ir per vestuves visi gauti pinigai all-in statymas į verslą - versle jau 18 metų). No way back. Ilgai nelaukus - margin accountas. Ir pradėjau. Be paper trading. Kam gaišti laiką? (gal ir nelabai kokia mintis) Išbandžiau visokių strategijų. Kai kurios iš pradžių atrodė kaip atradimas (PMCC) už pigiai, paskui iš jų fiksuoti nuostoliai parodė kas yra kas. Už <span class="num">-10k</span> sužinojau kaip pirkti LEAPS - pamoka brangi, bet ypač efektyvi. Metų pradžioje atrodė, kad jau viskas - atidirbu dalį nuostolio, susitvarkiau, ir tada - prasidėjo Iranas. Aišku krintant rinkai, pardaviau daug 30 USD pločio Call spreadų (treidai kaip ir laikomi - bearish), ir skaudžiai pamačiau ką reiškia kai rinka staiga apsisuka atgal. Pradėjau metus su <span class="num">+12K</span> fiksuoto profit, bet jau link vasaros buvo ištirpęs fiksuotas pliusas ir dar <span class="num">-12k</span> fiksuoto minuso.</p>
+
+      <p>Portfelis buvo nukritęs daugiau nei <span class="num">-50%</span>. Buvo gal kiek neramu ir liūdnoka, ypač kai kiti pasidalina savo portfeliais. Margin call negavau, bet buvau tam jau pasiruošęs. Dabar vėl bandau susigalvotą strategiją. Kol kas pirmaisiais rezultatais ir prisiimta rizika patenkintas. Per dieną stengiuosi padaryti bent 50 trade, kartais išeina ir 100. Dažniausiai apie 30 trade yra jau pačią pirmą valandą. Portfelyje virš 100 tickerių. 08-26d suskaičiavau, buvo 117 skirtingų tickerių o dar kai kurių ne po vieną pozicija. daugelio iki šiol net nebuvau girdėjęs, bet pasirinkau pagal kitus savo, sau, nusistatytus parametrus.</p>
+
+      <p>Nuo pat pradžių, ieškant šventojo gralio, išbandžiau visokiausių option screenerių, youtube opcionų guru, išleidau krūvas subscription. Ir gale - apsistojau ties nemokamais įrankiais + mokamas finviz ir aišku ši grupė, kurių bent kol kas, man užtenka. Peržiūrėjau daug tastytrade įrašų, analizių, tyrimų, patarimų, podcastų. Tikrinau senesnes podcastų herojų istorijas kas įvyko po metų ar dviejų ir kurios paskui nebuvo tokios gražios. Vienas Tom Sosnoff pasakymas labai patiko - nieko neklausyk, spręsk pats. Taip ir stengiuosi daryti. Todėl viską nagrinėju tik pagal savo nusistatytus parametrus. Paseku ką daro kanalo kolegos, retkarčiais pakopinu pavienį trade, jeigu neturiu kitų idėjų ir jis pataiko į mano kriterijus bei užtenka BP.</p>
+
+      <p>Žiūrint portfelio performance IBKR Home screene, ten rodo TWR rezultatą, tai pagal mane, jis kaip smulkiam trupinėliui nėra teisingas. Todėl pridėsiu ir portfelio MWR, nuo mėnesio pradžios, nuo ketvirčio pradžios ir nuo metų pradžios. Čia tam, kad pamatyti realią situaciją.</p>
+
+      <p>Pridedu kelis screenus kaip atrodo paskutinių 3 mėnesių rezultatai (buvot prašę pasidalinti kaip sekasi). 30, 60 ir 90 dienų. Turiu dar vieną LEAPS iš 2025, kuris rugsėjo gale expiruos bevertis su <span class="num">-8k</span> (čia antra LEAPS pamokos įmoka) ir jei neprisidarysiu nesąmonių toliau, gal pajudėsiu pirmyn.</p>
+
+      <p>Šiaip visa informacija, kuria remiuosi yra daugiau nei elementari, 100-tą kartų kartota čia, kituos forumuose, youtube kanaluose, podcastuose. Kaip sportas, žinom kad sportuoti sveika, tačiau kiek tai darom? Taigi, grįžtam prie opcionų. Paprastai tos įžvalgos būna tokios: Žiūrėti pozicijų dydį (pripažįstu sunku, būna, kad neatsilaikau kai IV aukštas). Naudoti call kai rinka kyla. Parduoti opcionus kai IV aukštas ir t.t. Jokių stebuklingų „secret“ žinių ar strategijų. Visos „secret strategy revealed“, sakyčiau, labiau Youtube clickbait'ai. Ta informacija - lygiai kaip lego kaladėlės, vienas iš tų pačių sudėlioja veikiantį mechanizmą, kitam iš tų pačių gaunasi paprasčiausias bokštas ir krūva atlikusių dalių. Aš savo vis dar statau.</p>
+
+      <p>Ieškant jau esančių strategijų youtube ar kitur - kaip ir versle - jei vien tik aklai seksi pirmą kursi tai vykdo ir promotina, visada būsi antras ir šiek tiek atsilikęs. O kai strategija taps neveiksminga - sužinosi per vėlai.</p>
+
+      <p>Dar yra Freedom24 accountas, irgi įdedu screenshot'ą nuo metų pradžios. Freedom accountui skiriu gal 10% laiko. Strategija labai konservatyvi ir ypatingai paprasta - nuperku spot akcijas su aukštu IV ir parduodu CC. Jei stipriai pakrenta akcija parduodu PUT, padidinu poziciją, išvidurkinu kainą ir tada vėl leidžiu covered call, kol assignina. Kažkokių fiksuotų reikšmingų nuostolių - neturėjau. Tik per didelė BMNR pozicija (12% portfelio) bet manau ir su ja kažkada išlipsiu.</p>
+
+      <p>Iš karto kyla klausimas: kokios sumos? Tiek freedom24 tiek IBKR, šiuo metu inešta po mazdaug <span class="num">120k</span>, abiejuose panašus ir nearealizuotas Loss <span class="num">-38k</span>.</p>
+
+      <p>Taigi, gerų naujų mokslo metų.</p>
+    </article>
+
+    <!-- POST 2 -->
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar a-r">R</div>
+        <div>
+          <div class="who">R.</div>
+          <div class="when">2026-08-31, 20:32</div>
+        </div>
+        <span class="tag">Kita pusė</span>
+      </div>
+      <h2 class="post-title">Ateinu atsvarai - ir kitokia, ne tokia pozityvia, savo patirtim pasidalint</h2>
+
+      <div class="reply-ctx"><b>Atsakymas K.:</b> „Mėnesį pradėjau su ~145K. Opcionų kelionę pradėjau prieš 13 mėn. su 100K ir įsinešiau pakeliui ~5K. Dabar 163. Pradėjau su margin pats nežinodamas… blogai, labai blogai, bet pasisekė nesusidegint pradžioje, o pora progų buvo ant ribos."</div>
+
+      <p>Baltas pavydas ir džiaugiuosi, kad taip pasisekė! Man taip šiuo atveju nenuskilo, nes startavau su tokia pat suma ir įsinešiau paskui tiek pat irgi, tik ne su margin startavau ir per daug buvo sudėta į kripto, kam paskui krentant kapitalas tapo įšaldytas. Tavo atveju margin net ir gelbėjo, nes galėjai judėti toliau, o aš nedariau nieko arba visiškai minimaliai ir sakiau tiesiog, kad lauksiu kripto bull runo, nes daugiau opcijų man nelabai ir liko.</p>
+
+      <p>Tai mano tikslas savo pirmų metų patirtį užbaigt tiesiog išėjus ant nulio. Mąsčiau čia irgi kada, kad va kiek išmokau ir bla bla, bandžiau save motyvuot ir sakiau sau, kad visi anksčiau ar vėliau pro tai praeit turės, tai aš praėjau pačioj pradžioj, bet paskui kuo daugiau mąsčiau tuo labiau susinervinau, nes tiesiog durna pasijaučiau. Ypač, kai va ir grupėj turim tikrai realių pavyzdžių, kai nebūtinai visi pro tai praeit turi.</p>
+
+      <p>Jei ir sudeginsit kada pusę portfelio, tai vis tiek nebus pradiniai įnešti pinigai, o jau degtų tai, kas buvo pliuse, tai vis tiek ne tiek skaudu. O ir šiaip su patirtim ir vieno kito pasvyravimo pajautimu bus jau bendrai geresnis pajautimas rinkos, tai tikėtina, kad ir neprieisit iki tokios ribos, kad degtų pusė portfelio.</p>
+
+      <p>O aš kai esu mačius, kai iš mano sunkiai uždirbtų pinigų prie akių rodo <span class="num">-45k</span>, tai mano visai kitokia patirtis. Ir tikrai baisu būna ypač rinkoms kylant priiminėt rizikingesnius sprendimus, nes turiu baimę ir žinau, kaip ištaškyt gali. Tai ir pastarosios savaitės pas mane labai ramios, kai jūs drąsiai virinat.</p>
+    </article>
+
+    <!-- POST 3 -->
+    <article class="post">
+      <div class="post-head">
+        <div class="avatar a-d">DP</div>
+        <div>
+          <div class="who">daug_pinigu</div>
+          <div class="when">2026-08-31, 21:00</div>
+        </div>
+        <span class="tag">Atsakymas</span>
+      </div>
+      <h2 class="post-title">Sizing is very important</h2>
+
+      <p>Norėčiau labai padėkoti R. ir V. - smagu yra dalintis pergalėm, bet tokio tipo pasidalinimai, manau, edukacijos prasme yra kartais vertingesni.</p>
+
+      <p>Labai paraginčiau kiekvieną perskaityti ir prisiminti, kad sizing is very important.</p>
+
+      <p>Pirmais metais bus klaidų - nėra tikimybės, kad išvengsit, klausimas tik ar sėkmė nusišypsos, ar ne.</p>
+
+      <p>Tai raginčiau kiekvieną geriau uždirbti mažiau, bet pirmus metus į tai žiūrėti kaip į neįkainojamą edukaciją, kuri ateityje padės jums uždirbti daugiau arba tinkamai valdyti rizikas. Galima pasirinkti šūdinas pozicijas, tai ne taip skausminga, kaip jeigu pasirinktas blogas sizing.</p>
+
+      <p>Nesvarbu, kiek tekstų beparašyčiau, nepavyks perduoti visko, kai kuriuos momentus tiesiog kiekvienam reikia išgyventi asmeniškai.</p>
+
+      <p>Kas pradeda, net ir su tuo pačiu margin acc dabar - geriau uždirbkit mažiau, dėl to tikrai neliūdėsit taip, kaip jeigu sudeginsit 50% ar daugiau savo portfelio. Kitais metais su praktika, esu užtikrintas, kad kiekvienas turės daugiau žinių ir galės priimti kur kas geresnį sprendimą.</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="takeaways">
+  <div class="wrap">
+    <h2>Ką iš to pasiimti</h2>
+    <p class="sub">Keturi dalykai, kurie kartojasi visuose trijuose tekstuose.</p>
+    <ul class="points">
+      <li>
+        <b>Pozicijos dydis nužudo greičiau nei bloga idėja</b>
+        <span>Prasta pozicija kainuoja procentus. Blogas sizing kainuoja portfelio pusę. Pirma valdai dydį, tik paskui ieškai idėjos.</span>
+      </li>
+      <li>
+        <b>Pirmi metai - tai mokestis už mokslą</b>
+        <span>Klaidų bus. Klausimas tik toks: ar jos kainuos tiek, kad galėsi likti prie stalo ir toliau žaisti.</span>
+      </li>
+      <li>
+        <b>Nuostolis nėra tik skaičius - jis keičia tavo sprendimus</b>
+        <span>Kai pamatai realų minusą savo pinigais, po to net kylant rinkai priimi kitokius sprendimus. Baimė yra dalis sistemos, ne klaida joje.</span>
+      </li>
+      <li>
+        <b>Nėra jokių slaptų strategijų</b>
+        <span>Informacija ta pati ir vieša. Skirtumas tik tas, kaip kiekvienas ją sudėlioja ir ar iš viso ją taiko.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="brand">daug_pinigu</p>
+    <p>Pasidalinimai iš uždaro bendruomenės kanalo, autorių vardai sutrumpinti iki inicialų. Skelbiama kaip patirties pasidalinimas, ne kaip investavimo rekomendacija - kiekvienas sprendimas ir jo pasekmės lieka jūsų.</p>
+  </div>
+</footer>
+
+</body>
+</html>
