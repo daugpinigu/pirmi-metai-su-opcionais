@@ -5,53 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pirmi metai su opcionais</title>
 <meta name="description" content="Trys sąžiningi pasidalinimai iš daug_pinigu bendruomenės: kaip iš tikrųjų atrodo pirmi metai prekiaujant opcionais.">
+<meta name="theme-color" content="#f8f1e7">
 <meta property="og:title" content="Pirmi metai su opcionais">
 <meta property="og:description" content="Trys sąžiningi pasidalinimai: kaip iš tikrųjų atrodo pirmi metai prekiaujant opcionais.">
 <meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #faf6ea;
-    --card: #fffdf6;
-    --surface: #f2ecda;
-    --ink: #2b3560;
-    --ink-strong: #1e2542;
-    --muted: #6b6350;
-    --hair: rgba(43, 53, 96, .16);
-    --gold: #c98a1b;
-    --gold-text: #8f6410;
-    --green: #3e7d4e;
-    --rust: #b5502f;
-    --shadow: 0 1px 2px rgba(30, 37, 66, .05), 0 10px 30px rgba(30, 37, 66, .07);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #141828;
-      --card: #1a1f33;
-      --surface: #1e2440;
-      --ink: #e9e2cd;
-      --ink-strong: #f7f1e0;
-      --muted: #a89f83;
-      --hair: rgba(233, 226, 205, .15);
-      --gold: #d9a53f;
-      --gold-text: #d9a53f;
-      --green: #7cb98b;
-      --rust: #d97f5a;
-      --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .32);
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #141828;
-    --card: #1a1f33;
-    --surface: #1e2440;
-    --ink: #e9e2cd;
-    --ink-strong: #f7f1e0;
-    --muted: #a89f83;
-    --hair: rgba(233, 226, 205, .15);
-    --gold: #d9a53f;
-    --gold-text: #d9a53f;
-    --green: #7cb98b;
-    --rust: #d97f5a;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .32);
+    color-scheme: light;
+    /* @daug_pinigu IG paletė (paimta iš profilio vizualų) */
+    --cream: #f8f1e7;
+    --cream-deep: #f1e7d8;
+    --card: #fdf9f2;
+    --ink: #1c1319;
+    --ink-soft: #3a2f33;
+    --muted: #7a6b63;
+    --orange: #f09613;
+    --orange-soft: #eaad4a;
+    --green: #18683f;
+    --hair: rgba(28, 19, 25, .13);
+    --shadow: 0 1px 2px rgba(28, 19, 25, .04), 0 12px 34px rgba(28, 19, 25, .07);
+    --sans: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
   }
 
   * { box-sizing: border-box; }
@@ -60,124 +37,151 @@
 
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.68;
+    background: var(--cream);
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-size: 17.5px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+  .wrap { max-width: 730px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- brūkštelėjimas (IG signature) ---------- */
+  .swoosh { display: block; width: 190px; height: 42px; margin: 0 0 18px; overflow: visible; }
+  .swoosh.center { margin-left: auto; margin-right: auto; }
+  .swoosh path { fill: none; stroke: var(--orange); stroke-linecap: round; stroke-linejoin: round; }
+  .swoosh .s1 { stroke-width: 7.5; }
+  .swoosh .s2 { stroke-width: 5; opacity: .92; }
 
   /* ---------- hero ---------- */
-  header.hero {
-    padding: 68px 0 40px;
-    border-bottom: 1px solid var(--hair);
-    background:
-      radial-gradient(1000px 380px at 15% -10%, color-mix(in srgb, var(--gold) 13%, transparent), transparent 70%),
-      var(--bg);
-  }
+  header.hero { padding: 62px 0 44px; }
   .eyebrow {
-    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--gold-text); font-weight: 700; margin: 0 0 16px;
+    font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--orange); font-weight: 800; margin: 0 0 14px;
   }
   h1 {
-    font-size: clamp(34px, 6.2vw, 52px);
-    line-height: 1.08; letter-spacing: -.02em;
-    margin: 0 0 20px; color: var(--ink-strong); font-weight: 800;
+    font-family: var(--serif);
+    font-size: clamp(38px, 7vw, 60px);
+    line-height: 1.04; letter-spacing: -.015em;
+    margin: 0 0 20px; color: var(--ink); font-weight: 700;
   }
-  .lede { font-size: 19px; color: var(--muted); margin: 0 0 26px; max-width: 60ch; }
-  .meta { font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
-  .meta .dot { opacity: .45; }
+  .lede { font-size: 19.5px; color: var(--muted); margin: 0 0 28px; max-width: 58ch; }
+  .meta {
+    font-size: 13.5px; color: var(--muted); display: flex; flex-wrap: wrap;
+    gap: 8px 14px; align-items: center;
+    border-top: 1px solid var(--hair); padding-top: 18px;
+  }
+  .meta .dot { color: var(--orange-soft); }
 
   /* ---------- intro ---------- */
-  section.intro { padding: 44px 0 8px; }
-  section.intro p { margin: 0 0 18px; }
+  section.intro { padding: 8px 0 0; }
+  section.intro p { margin: 0 0 20px; }
   section.intro p.first::first-letter {
-    float: left; font-size: 58px; line-height: .84; font-weight: 800;
-    color: var(--gold-text); padding: 4px 12px 0 0;
+    float: left; font-family: var(--serif); font-size: 68px; line-height: .8; font-weight: 700;
+    color: var(--orange); padding: 8px 14px 0 0;
   }
 
   /* ---------- pull quote ---------- */
   .pull {
-    margin: 34px 0 46px; padding: 26px 28px;
-    background: var(--surface); border-left: 4px solid var(--gold);
-    border-radius: 0 12px 12px 0;
-    font-size: 21px; line-height: 1.45; font-weight: 650;
-    color: var(--ink-strong); letter-spacing: -.01em;
+    margin: 40px 0 52px; padding: 30px 32px;
+    background: var(--cream-deep); border-radius: 18px;
+    font-family: var(--serif);
+    font-size: 24px; line-height: 1.4; font-weight: 600;
+    color: var(--ink); letter-spacing: -.01em;
+    position: relative;
+  }
+  .pull::before {
+    content: ""; position: absolute; left: 0; top: 22px; bottom: 22px; width: 5px;
+    background: var(--orange); border-radius: 0 4px 4px 0;
   }
 
-  /* ---------- posts ---------- */
-  .posts { padding: 10px 0 20px; }
+  /* ---------- pasidalinimai ---------- */
   article.post {
     background: var(--card);
     border: 1px solid var(--hair);
-    border-radius: 16px;
-    padding: 30px 30px 26px;
-    margin: 0 0 30px;
+    border-radius: 20px;
+    padding: 32px 32px 28px;
+    margin: 0 0 32px;
     box-shadow: var(--shadow);
   }
-  .post-head { display: flex; align-items: center; gap: 14px; margin: 0 0 6px; }
+  .post-head { display: flex; align-items: center; gap: 14px; }
   .avatar {
-    width: 44px; height: 44px; border-radius: 50%; flex: 0 0 44px;
+    width: 46px; height: 46px; border-radius: 50%; flex: 0 0 46px;
     display: grid; place-items: center;
-    font-weight: 800; font-size: 17px; letter-spacing: .01em;
-    color: #fffdf6;
+    font-family: var(--serif); font-weight: 700; font-size: 19px;
+    color: var(--cream);
   }
-  .a-v { background: linear-gradient(140deg, #4a5a9e, #2b3560); }
-  .a-r { background: linear-gradient(140deg, #c98a1b, #96601a); }
-  .a-d { background: linear-gradient(140deg, #3e7d4e, #275634); }
-  .who { font-weight: 750; color: var(--ink-strong); font-size: 16.5px; }
+  .a-v { background: var(--ink); }
+  .a-r { background: linear-gradient(150deg, var(--orange), #cf7a08); }
+  .a-d { background: var(--green); }
+  .who { font-weight: 800; color: var(--ink); font-size: 16.5px; letter-spacing: .01em; }
   .when { font-size: 13px; color: var(--muted); }
   .tag {
-    display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .07em;
-    text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
-    border: 1px solid var(--hair); color: var(--muted); margin-left: auto;
+    font-size: 11px; font-weight: 800; letter-spacing: .11em;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+    background: var(--cream-deep); color: var(--muted); margin-left: auto;
     white-space: nowrap;
   }
   .post-title {
-    margin: 14px 0 14px; font-size: 22px; line-height: 1.25; font-weight: 750;
-    color: var(--ink-strong); letter-spacing: -.015em;
+    font-family: var(--serif);
+    margin: 20px 0 16px; font-size: 25px; line-height: 1.24; font-weight: 700;
+    color: var(--ink); letter-spacing: -.015em;
   }
   .reply-ctx {
-    font-size: 14px; color: var(--muted); background: var(--surface);
-    border-radius: 10px; padding: 10px 14px; margin: 12px 0 16px;
-    border-left: 3px solid var(--hair);
+    font-size: 14.5px; color: var(--muted); background: var(--cream);
+    border-radius: 12px; padding: 13px 16px; margin: 14px 0 20px;
+    border-left: 3px solid var(--orange-soft);
   }
-  .reply-ctx b { color: var(--ink); font-weight: 700; }
-  .post p { margin: 0 0 16px; }
+  .reply-ctx b { color: var(--ink); font-weight: 800; }
+  .post p { margin: 0 0 17px; }
   .post p:last-child { margin-bottom: 0; }
-  .post .num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink-strong); }
+  .num {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 1.09em; color: var(--ink); letter-spacing: .005em;
+  }
+  .num.up { color: var(--green); }
 
-  /* ---------- takeaways ---------- */
-  section.takeaways { padding: 26px 0 10px; }
+  /* ---------- ką pasiimti ---------- */
+  section.takeaways { padding: 30px 0 0; }
   h2 {
-    font-size: 26px; letter-spacing: -.02em; color: var(--ink-strong);
-    margin: 0 0 8px; font-weight: 800;
+    font-family: var(--serif);
+    font-size: 32px; letter-spacing: -.015em; color: var(--ink);
+    margin: 0 0 8px; font-weight: 700;
   }
-  .sub { color: var(--muted); margin: 0 0 24px; }
-  ul.points { list-style: none; margin: 0; padding: 0; }
+  .sub { color: var(--muted); margin: 0 0 26px; }
+  ul.points { list-style: none; margin: 0; padding: 0; counter-reset: pt; }
   ul.points li {
-    background: var(--card); border: 1px solid var(--hair); border-radius: 13px;
-    padding: 18px 20px; margin: 0 0 12px;
+    background: var(--card); border: 1px solid var(--hair); border-radius: 16px;
+    padding: 20px 22px 20px 62px; margin: 0 0 13px; position: relative;
   }
-  ul.points li b { color: var(--ink-strong); display: block; margin-bottom: 3px; font-size: 16px; }
+  ul.points li::before {
+    counter-increment: pt; content: counter(pt);
+    position: absolute; left: 22px; top: 19px;
+    font-family: var(--serif); font-size: 26px; font-weight: 700;
+    color: var(--orange); line-height: 1;
+  }
+  ul.points li b { color: var(--ink); display: block; margin-bottom: 4px; font-size: 16.5px; font-weight: 800; }
   ul.points li span { color: var(--muted); font-size: 15.5px; }
 
   /* ---------- footer ---------- */
   footer {
-    margin-top: 46px; padding: 30px 0 60px;
+    margin-top: 52px; padding: 34px 0 64px;
     border-top: 1px solid var(--hair);
     font-size: 14px; color: var(--muted);
   }
   footer p { margin: 0 0 10px; }
-  footer .brand { font-weight: 750; color: var(--ink-strong); }
+  footer .brand {
+    font-weight: 800; color: var(--ink); font-size: 16px; letter-spacing: .01em;
+  }
 
   @media (max-width: 560px) {
     body { font-size: 16.5px; }
-    article.post { padding: 24px 20px 20px; border-radius: 14px; }
-    .pull { font-size: 19px; padding: 22px 22px; }
+    .wrap { padding: 0 18px; }
+    article.post { padding: 24px 21px 21px; border-radius: 16px; }
+    .pull { font-size: 20px; padding: 24px 24px; }
+    .post-title { font-size: 22px; }
     .tag { display: none; }
+    .swoosh { width: 150px; height: 34px; }
   }
 </style>
 </head>
@@ -185,6 +189,11 @@
 
 <header class="hero">
   <div class="wrap">
+    <svg class="swoosh" viewBox="0 0 470 100" aria-hidden="true">
+      <path class="s1" d="M12 86 C 62 60, 152 57, 252 64 C 332 69, 398 77, 424 72 C 445 68, 449 44, 441 20"/>
+      <path class="s2" d="M92 60 C 124 50, 168 47, 203 49"/>
+      <path class="s2" d="M456 32 C 461 51, 452 66, 431 76"/>
+    </svg>
     <p class="eyebrow">daug_pinigu bendruomenė</p>
     <h1>Pirmi metai su opcionais</h1>
     <p class="lede">Trys pasidalinimai iš uždaro kanalo. Be gražinimo, be pergalių paradų - taip, kaip iš tikrųjų atrodo pirmieji metai.</p>
@@ -203,12 +212,10 @@
     <p class="first">Bendruomenėse dažniausiai matai tik vieną pusę - screenshot'us su žaliais skaičiais. Šitie trys tekstai kitokie. Juos parašė žmonės, kurie pirmus metus praėjo su realiais pinigais ir nusprendė papasakoti ne tik apie tai, kas pavyko.</p>
     <p>Vienas per metus matė portfelį nukritusį daugiau nei per pusę ir vis tiek liko prie stalo. Kita pasidalino tuo, apie ką paprastai tylima - kaip jautiesi, kai iš sunkiai uždirbtų pinigų prie akių rodo minusą. Trečias tekstas - mano atsakymas jiems abiem.</p>
     <p>Skaitykit lėtai. Čia yra daugiau vertės nei bet kuriame „secret strategy revealed“ video.</p>
+
+    <div class="pull">„Galima pasirinkti šūdinas pozicijas, tai ne taip skausminga, kaip jeigu pasirinktas blogas sizing.“</div>
   </div>
 </section>
-
-<div class="wrap">
-  <div class="pull">„Galima pasirinkti šūdinas pozicijas, tai ne taip skausminga, kaip jeigu pasirinktas blogas sizing.“</div>
-</div>
 
 <section class="posts">
   <div class="wrap">
@@ -229,7 +236,7 @@
 
       <p>Pirmiausia padėkosiu G., kad nukreipė mane čia, per jį sužinojau kad išvis tokia grupė ir toks dalykas kaip opcionai egzistuoja. Ačiū daug_pinigu už kuriamą turinį. Kiekviena diena, po žadintuvo signalo, prasideda vienodai: futures situacijos patikrinimas ir laukimas, kada atsidarys rinka. Savaitgalį irgi vis patikrinu - gal atsidarė? Panašu kad išsivystė priklausomybe nuo kavos ir US rinkos.</p>
 
-      <p>IBKR accounta atsidariau 2025 spalio mėn. Po konsultacijos su G. susidėliojau prioritetus. Vėliau pardaviau NT (tik savo asmeniniu sprendimu) ir padariau all-in į opcionus. (Taip buvo kažkada ir per vestuves visi gauti pinigai all-in statymas į verslą - versle jau 18 metų). No way back. Ilgai nelaukus - margin accountas. Ir pradėjau. Be paper trading. Kam gaišti laiką? (gal ir nelabai kokia mintis) Išbandžiau visokių strategijų. Kai kurios iš pradžių atrodė kaip atradimas (PMCC) už pigiai, paskui iš jų fiksuoti nuostoliai parodė kas yra kas. Už <span class="num">-10k</span> sužinojau kaip pirkti LEAPS - pamoka brangi, bet ypač efektyvi. Metų pradžioje atrodė, kad jau viskas - atidirbu dalį nuostolio, susitvarkiau, ir tada - prasidėjo Iranas. Aišku krintant rinkai, pardaviau daug 30 USD pločio Call spreadų (treidai kaip ir laikomi - bearish), ir skaudžiai pamačiau ką reiškia kai rinka staiga apsisuka atgal. Pradėjau metus su <span class="num">+12K</span> fiksuoto profit, bet jau link vasaros buvo ištirpęs fiksuotas pliusas ir dar <span class="num">-12k</span> fiksuoto minuso.</p>
+      <p>IBKR accounta atsidariau 2025 spalio mėn. Po konsultacijos su G. susidėliojau prioritetus. Vėliau pardaviau NT (tik savo asmeniniu sprendimu) ir padariau all-in į opcionus. (Taip buvo kažkada ir per vestuves visi gauti pinigai all-in statymas į verslą - versle jau 18 metų). No way back. Ilgai nelaukus - margin accountas. Ir pradėjau. Be paper trading. Kam gaišti laiką? (gal ir nelabai kokia mintis) Išbandžiau visokių strategijų. Kai kurios iš pradžių atrodė kaip atradimas (PMCC) už pigiai, paskui iš jų fiksuoti nuostoliai parodė kas yra kas. Už <span class="num">-10k</span> sužinojau kaip pirkti LEAPS - pamoka brangi, bet ypač efektyvi. Metų pradžioje atrodė, kad jau viskas - atidirbu dalį nuostolio, susitvarkiau, ir tada - prasidėjo Iranas. Aišku krintant rinkai, pardaviau daug 30 USD pločio Call spreadų (treidai kaip ir laikomi - bearish), ir skaudžiai pamačiau ką reiškia kai rinka staiga apsisuka atgal. Pradėjau metus su <span class="num up">+12K</span> fiksuoto profit, bet jau link vasaros buvo ištirpęs fiksuotas pliusas ir dar <span class="num">-12k</span> fiksuoto minuso.</p>
 
       <p>Portfelis buvo nukritęs daugiau nei <span class="num">-50%</span>. Buvo gal kiek neramu ir liūdnoka, ypač kai kiti pasidalina savo portfeliais. Margin call negavau, bet buvau tam jau pasiruošęs. Dabar vėl bandau susigalvotą strategiją. Kol kas pirmaisiais rezultatais ir prisiimta rizika patenkintas. Per dieną stengiuosi padaryti bent 50 trade, kartais išeina ir 100. Dažniausiai apie 30 trade yra jau pačią pirmą valandą. Portfelyje virš 100 tickerių. 08-26d suskaičiavau, buvo 117 skirtingų tickerių o dar kai kurių ne po vieną pozicija. daugelio iki šiol net nebuvau girdėjęs, bet pasirinkau pagal kitus savo, sau, nusistatytus parametrus.</p>
 
@@ -262,7 +269,7 @@
       </div>
       <h2 class="post-title">Ateinu atsvarai - ir kitokia, ne tokia pozityvia, savo patirtim pasidalint</h2>
 
-      <div class="reply-ctx"><b>Atsakymas K.:</b> „Mėnesį pradėjau su ~145K. Opcionų kelionę pradėjau prieš 13 mėn. su 100K ir įsinešiau pakeliui ~5K. Dabar 163. Pradėjau su margin pats nežinodamas… blogai, labai blogai, bet pasisekė nesusidegint pradžioje, o pora progų buvo ant ribos."</div>
+      <div class="reply-ctx"><b>Atsakymas K.:</b> „Mėnesį pradėjau su ~145K. Opcionų kelionę pradėjau prieš 13 mėn. su 100K ir įsinešiau pakeliui ~5K. Dabar 163. Pradėjau su margin pats nežinodamas… blogai, labai blogai, bet pasisekė nesusidegint pradžioje, o pora progų buvo ant ribos.“</div>
 
       <p>Baltas pavydas ir džiaugiuosi, kad taip pasisekė! Man taip šiuo atveju nenuskilo, nes startavau su tokia pat suma ir įsinešiau paskui tiek pat irgi, tik ne su margin startavau ir per daug buvo sudėta į kripto, kam paskui krentant kapitalas tapo įšaldytas. Tavo atveju margin net ir gelbėjo, nes galėjai judėti toliau, o aš nedariau nieko arba visiškai minimaliai ir sakiau tiesiog, kad lauksiu kripto bull runo, nes daugiau opcijų man nelabai ir liko.</p>
 
@@ -303,6 +310,11 @@
 
 <section class="takeaways">
   <div class="wrap">
+    <svg class="swoosh" viewBox="0 0 470 100" aria-hidden="true">
+      <path class="s1" d="M12 86 C 62 60, 152 57, 252 64 C 332 69, 398 77, 424 72 C 445 68, 449 44, 441 20"/>
+      <path class="s2" d="M92 60 C 124 50, 168 47, 203 49"/>
+      <path class="s2" d="M456 32 C 461 51, 452 66, 431 76"/>
+    </svg>
     <h2>Ką iš to pasiimti</h2>
     <p class="sub">Keturi dalykai, kurie kartojasi visuose trijuose tekstuose.</p>
     <ul class="points">
