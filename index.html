@@ -141,6 +141,48 @@
   }
   .num.up { color: var(--green); }
 
+  /* ---------- rezultatų galerija ---------- */
+  .gallery { margin: -8px 0 34px; }
+  .gallery h3 {
+    font-family: var(--serif); font-size: 21px; font-weight: 700; color: var(--ink);
+    margin: 26px 0 4px; letter-spacing: -.01em;
+  }
+  .gallery h3:first-of-type { margin-top: 0; }
+  .gallery .note { font-size: 14.5px; color: var(--muted); margin: 0 0 16px; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 4px; }
+  .shots.one { grid-template-columns: minmax(0, 340px); }
+  .shot {
+    display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+    width: 100%; padding: 0; text-align: left;
+    font: inherit; color: inherit; cursor: zoom-in;
+    background: var(--card); border: 1px solid var(--hair);
+    border-radius: 14px; overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .shot:hover, .shot:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .shot:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .shot img {
+    display: block; width: 100%; height: auto; aspect-ratio: 3 / 3.6;
+    object-fit: cover; object-position: top center; background: #fff;
+    border-bottom: 1px solid var(--hair);
+  }
+  /* vienintele kortele - rodom visa vaizda, be karpymo */
+  .shots.one .shot img { aspect-ratio: auto; object-fit: contain; }
+  .shot .cap { display: block; padding: 12px 14px 14px; }
+  .cap-t { font-weight: 800; color: var(--ink); font-size: 14px; display: block; }
+  .cap-n { font-family: var(--serif); font-size: 18px; color: var(--green); display: block; margin: 3px 0 1px; }
+  .cap-s { font-size: 12.5px; color: var(--muted); display: block; line-height: 1.45; }
+
+  /* lightbox */
+  #lb { position: fixed; inset: 0; z-index: 100; background: rgba(20, 13, 18, .93); overflow: auto; padding: 56px 16px 40px; }
+  #lb[hidden] { display: none; }
+  #lb img { display: block; width: 100%; max-width: 520px; margin: 0 auto; border-radius: 12px; }
+  #lb-close {
+    position: fixed; top: 12px; right: 14px; z-index: 101;
+    width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--cream); color: var(--ink); font-size: 22px; line-height: 1;
+  }
+
   /* ---------- ką pasiimti ---------- */
   section.takeaways { padding: 30px 0 0; }
   h2 {
@@ -184,6 +226,11 @@
     .swoosh { width: 150px; height: 34px; }
     .meta { gap: 4px 12px; }
     .meta .dot { display: none; }
+    .shots { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .shots.one { grid-template-columns: minmax(0, 1fr); }
+    .shot .cap { padding: 10px 11px 12px; }
+    .cap-t { font-size: 13px; }
+    .cap-n { font-size: 16px; }
   }
 </style>
 </head>
@@ -202,7 +249,7 @@
     <div class="meta">
       <span>2026 m. rugsėjo 1 d.</span>
       <span class="dot">•</span>
-      <span>3 pasidalinimai</span>
+      <span>2 pasidalinimai</span>
       <span class="dot">•</span>
       <span>~9 min skaitymo</span>
     </div>
@@ -211,9 +258,8 @@
 
 <section class="intro">
   <div class="wrap">
-    <p class="first">Bendruomenėse dažniausiai matai tik vieną pusę - screenshot'us su žaliais skaičiais. Šitie trys tekstai kitokie. Juos parašė žmonės, kurie pirmus metus praėjo su realiais pinigais ir nusprendė papasakoti ne tik apie tai, kas pavyko.</p>
-    <p>Vienas per metus matė portfelį nukritusį daugiau nei per pusę ir vis tiek liko prie stalo. Kita pasidalino tuo, apie ką paprastai tylima - kaip jautiesi, kai iš sunkiai uždirbtų pinigų prie akių rodo minusą. Trečias tekstas - mano atsakymas jiems abiem.</p>
-    <p>Skaitykit lėtai. Čia yra daugiau vertės nei bet kuriame „secret strategy revealed“ video.</p>
+    <p class="first">Bendruomenėse dažniausiai matai tik vieną pusę - screenshot'us su žaliais skaičiais. Šitie du tekstai kitokie. Juos parašė žmonės, kurie pirmus metus praėjo su realiais pinigais ir nusprendė papasakoti ne tik apie tai, kas pavyko.</p>
+    <p>Vienas per metus matė portfelį nukritusį daugiau nei per pusę ir vis tiek liko prie stalo. Kita pasidalino tuo, apie ką paprastai tylima - kaip jautiesi, kai iš sunkiai uždirbtų pinigų prie akių rodo minusą. Pabaigoje - mano atsakymas jiems abiem.</p>
 
     <div class="pull">„Galima pasirinkti šūdinas pozicijas, tai ne taip skausminga, kaip jeigu pasirinktas blogas sizing.“</div>
   </div>
@@ -258,6 +304,83 @@
 
       <p>Taigi, gerų naujų mokslo metų.</p>
     </article>
+
+    <!-- V. pridėti screenshot'ai -->
+    <section class="gallery">
+      <h3>V. pridėti rezultatai</h3>
+      <p class="note">Tie patys screenshot'ai, kuriuos jis įdėjo prie savo teksto. Sąskaitos numeris uždengtas. Spusk, kad pamatytum visą.</p>
+
+      <div class="shots">
+        <button class="shot" data-full="img/ibkr-30d.png">
+          <img src="img/ibkr-30d.png" alt="IBKR rezultatai 2026-08-03 iki 2026-08-31" loading="lazy" width="722" height="1725">
+          <span class="cap">
+            <span class="cap-t">30 dienų · 08-03 → 08-31</span>
+            <span class="cap-n">+26 811 € · +25,38%</span>
+            <span class="cap-s">NAV 82 565 → 109 376</span>
+          </span>
+        </button>
+        <button class="shot" data-full="img/ibkr-60d.png">
+          <img src="img/ibkr-60d.png" alt="IBKR rezultatai 2026-07-01 iki 2026-08-31" loading="lazy" width="720" height="1724">
+          <span class="cap">
+            <span class="cap-t">60 dienų · 07-01 → 08-31</span>
+            <span class="cap-n">+28 160 € · +27,93%</span>
+            <span class="cap-s">NAV 81 217 → 109 376</span>
+          </span>
+        </button>
+        <button class="shot" data-full="img/ibkr-ytd.png">
+          <img src="img/ibkr-ytd.png" alt="IBKR rezultatai nuo 2026-01-01 iki 2026-08-31" loading="lazy" width="725" height="1741">
+          <span class="cap">
+            <span class="cap-t">Nuo metų pradžios · 01-01 → 08-31</span>
+            <span class="cap-n">+59 995 € · +5,96%</span>
+            <span class="cap-s">NAV 49 381 → 109 376. NAV pokytis apima ir pakeliui įneštą kapitalą, todėl su grąžos % nesutampa.</span>
+          </span>
+        </button>
+      </div>
+
+      <h3>Sandorių apimtis ir realizuotas rezultatas</h3>
+      <p class="note">Iš to paties IBKR - kiek sandorių ir kiek jų realiai užfiksuota.</p>
+
+      <div class="shots">
+        <button class="shot" data-full="img/trades-30d.png">
+          <img src="img/trades-30d.png" alt="IBKR sandoriai per 30 dienų" loading="lazy" width="899" height="1820">
+          <span class="cap">
+            <span class="cap-t">30 dienų · 08-02 → 08-31</span>
+            <span class="cap-n">+21 423 €</span>
+            <span class="cap-s">1 227 sandoriai</span>
+          </span>
+        </button>
+        <button class="shot" data-full="img/trades-60d.png">
+          <img src="img/trades-60d.png" alt="IBKR sandoriai per 60 dienų" loading="lazy" width="899" height="1820">
+          <span class="cap">
+            <span class="cap-t">60 dienų · 07-03 → 08-31</span>
+            <span class="cap-n">+23 463 €</span>
+            <span class="cap-s">1 537 sandoriai</span>
+          </span>
+        </button>
+        <button class="shot" data-full="img/trades-90d.png">
+          <img src="img/trades-90d.png" alt="IBKR sandoriai per 90 dienų" loading="lazy" width="899" height="1820">
+          <span class="cap">
+            <span class="cap-t">90 dienų · 06-03 → 08-31</span>
+            <span class="cap-n">+33 147 €</span>
+            <span class="cap-s">1 918 sandorių</span>
+          </span>
+        </button>
+      </div>
+
+      <h3>Antra sąskaita</h3>
+      <p class="note">Konservatyvi dalis: spot akcijos su aukštu IV ir covered call'ai.</p>
+
+      <div class="shots one">
+        <button class="shot" data-full="img/freedom24-statistika.png">
+          <img src="img/freedom24-statistika.png" alt="Prekybos statistika: 993 sandoriai, pelnas 23 960 EUR" loading="lazy" width="501" height="488">
+          <span class="cap">
+            <span class="cap-t">Prekybos statistika už laikotarpį</span>
+            <span class="cap-n">+23 960 €</span>
+            <span class="cap-s">993 sandoriai · apyvarta 343 406 €</span>
+          </span>
+        </button>
+      </div>
+    </section>
 
     <!-- POST 2 -->
     <article class="post">
@@ -318,7 +441,7 @@
       <path class="s2" d="M456 32 C 461 51, 452 66, 431 76"/>
     </svg>
     <h2>Ką iš to pasiimti</h2>
-    <p class="sub">Keturi dalykai, kurie kartojasi visuose trijuose tekstuose.</p>
+    <p class="sub">Keturi dalykai, kurie kartojasi abiejuose pasidalinimuose.</p>
     <ul class="points">
       <li>
         <b>Pozicijos dydis nužudo greičiau nei bloga idėja</b>
@@ -346,6 +469,43 @@
     <p>Pasidalinimai iš uždaro bendruomenės kanalo, autorių vardai sutrumpinti iki inicialų. Skelbiama kaip patirties pasidalinimas, ne kaip investavimo rekomendacija - kiekvienas sprendimas ir jo pasekmės lieka jūsų.</p>
   </div>
 </footer>
+
+<div id="lb" hidden>
+  <button id="lb-close" aria-label="Uždaryti">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+  (function () {
+    var lb = document.getElementById('lb');
+    var img = document.getElementById('lb-img');
+    var last = null;
+
+    function open(src, alt, trigger) {
+      img.src = src;
+      img.alt = alt || '';
+      lb.hidden = false;
+      last = trigger;
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lb-close').focus();
+    }
+    function close() {
+      lb.hidden = true;
+      img.src = '';
+      document.body.style.overflow = '';
+      if (last) last.focus();
+    }
+
+    document.querySelectorAll('.shot').forEach(function (b) {
+      b.addEventListener('click', function () {
+        open(b.dataset.full, b.querySelector('img').alt, b);
+      });
+    });
+    document.getElementById('lb-close').addEventListener('click', close);
+    lb.addEventListener('click', function (e) { if (e.target !== img) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+  })();
+</script>
 
 </body>
 </html>
